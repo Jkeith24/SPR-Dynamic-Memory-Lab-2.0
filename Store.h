@@ -9,6 +9,7 @@ class Store
 public:
 	Store();
 	void Print() const;
+	
 
 	
 };

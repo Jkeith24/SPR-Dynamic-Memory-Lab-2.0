@@ -1,1 +1,32 @@
 Write your debugging steps and thought process here (This is part of your grade)
+
+						-------- SCOPE MAIN ------------
+immediately after looking at the lab i saw that the Store s in scope main was never cleaned up so I simply
+just deleted s. This was also covered in the lecture.
+
+						--------Store-----------
+
+I next followed the code into the Store::print method. I realized that the m_inventories was not being cleaned
+up at all so I put a delete[] m_inventories there. Delete[] becuase it is an array of inventories.
+
+The helperItem in Store::Store to my knowledge wasn't even being used so I just deleted it immediately after it was declared.
+
+						-------Items------------
+
+For Items, I needed to create a deconstructor to delete after it was used. It was as simple as
+throwing a delete m_value into the deconstructor.
+
+Also, in the items constructor there were two m_values. I deleted the first one immediately after
+but before the next m_value. This was covered in the lecture as well. 
+
+The Item::Print method also needed to have its value deleted. A simple delete value was all it needed after it was done printing
+because it was no longer needed after printing.
+
+							---INVENTORY------
+Inventory had some major leaks so I needed to use a deconstructor to clean up the m_items vector. This required a for loop
+to delete each value in the vector. This cleaned up a lot of memory.
+
+In the Inventory.h print(). The nSize needed to be deleted which was a small amount of memory but still needed deleted.
+
+
+

@@ -3,6 +3,7 @@
 Store::Store()
 {
 	Item* helperItem = new Item("DEFAULT", 10);
+	delete helperItem;
 	m_Inventories = new Inventory[m_NumInventories];
 	
 }
@@ -17,7 +18,7 @@ void Store::Print() const
 	
 	delete[] m_Inventories;
 	
-	
-	
-	
 }
+
+
+

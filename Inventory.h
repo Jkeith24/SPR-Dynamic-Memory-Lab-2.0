@@ -15,6 +15,7 @@ class Inventory
 		m_Items.push_back(new Item(name.c_str(), 100 * m_ItemsMade));
 		++m_ItemsMade;
 		
+		
 	}
 
 public:
@@ -37,5 +38,14 @@ public:
 		delete nSize;
 		
 		
+		
+	}
+
+	~Inventory()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			delete m_Items[i];
+		}
 	}
 };
